@@ -32,3 +32,5 @@
 8. Add Bootstrap styling
    1. install react-bootstrap
    2. implement in app.js
+9. Style Cards
+10. Edit Loading Spinner
