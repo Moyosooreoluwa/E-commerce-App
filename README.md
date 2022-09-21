@@ -23,3 +23,9 @@
    9. move products.js to backend
    10. create route for api/products
    11. return products
+7. Fetch products from backend
+   1. set proxy in package.json
+   2. install axios
+   3. use state
+   4. use effect
+   5. use reducer
