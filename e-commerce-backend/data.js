@@ -26,7 +26,7 @@ const data = {
         'Wireless over-ear bluetooth earphones with active noise cancellation.',
     },
     {
-      name: 'Samsung S22 Ultra',
+      name: 'Samsung Galaxy S22 Ultra',
       slug: 'samsung-s22-ultra',
       category: 'Mobile Phones',
       image: '/images/samsung-s22(2).jpg',
