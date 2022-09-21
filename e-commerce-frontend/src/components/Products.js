@@ -2,9 +2,7 @@ import React, { useReducer } from 'react';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
-import logger from 'use-reducer-logger';
 
-import data from '../data';
 import LoadingSpinner from './LoadingSpinner';
 
 const reducer = (state, action) => {
@@ -22,7 +20,7 @@ const reducer = (state, action) => {
 
 const Products = () => {
   // const [products, setProducts] = useState([]);
-  const [{ loading, error, products }, dispatch] = useReducer(logger(reducer), {
+  const [{ loading, error, products }, dispatch] = useReducer(reducer, {
     products: [],
     loading: true,
     error: '',

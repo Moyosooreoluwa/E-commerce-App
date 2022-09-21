@@ -29,3 +29,6 @@
    3. use state
    4. use effect
    5. use reducer
+8. Add Bootstrap styling
+   1. install react-bootstrap
+   2. implement in app.js
