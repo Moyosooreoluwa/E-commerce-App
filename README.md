@@ -10,3 +10,4 @@
    2. Add images of the products
    3. Render products
    4. Add styling
+5. Add routing
