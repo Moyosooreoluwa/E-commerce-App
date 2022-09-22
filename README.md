@@ -41,3 +41,6 @@
     2. reducer
     3. store provider
     4. add to cart button handler
+14. Complete Add To Cart
+    1. check exist item in the cart
+    2. check count in stock in backend
