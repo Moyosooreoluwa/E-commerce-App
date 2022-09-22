@@ -1,4 +1,4 @@
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
@@ -29,6 +29,7 @@ const reducer = (state, action) => {
 };
 
 const ProductScreen = () => {
+  const navigate = useNavigate();
   const params = useParams();
   const { slug } = params;
   const [{ loading, error, product }, dispatch] = useReducer(reducer, {
@@ -61,6 +62,7 @@ const ProductScreen = () => {
       type: 'ADD_ITEM_TO_CART',
       payload: { ...product, quantity },
     });
+    navigate('/cart');
   };
   return (
     <div>
