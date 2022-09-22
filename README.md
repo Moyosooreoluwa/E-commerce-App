@@ -48,3 +48,7 @@
     1. create 2 columns
     2. display items list .
     3. create action column
+16. Complete Cart Screen
+    1. click handler to increase or decrease item quantity
+    2. click handler to remove item
+    3. click handler to checkout

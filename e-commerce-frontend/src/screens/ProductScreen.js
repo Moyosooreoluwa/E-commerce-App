@@ -57,6 +57,7 @@ const ProductScreen = () => {
     const { data } = await axios.get(`/api/products/${product._id}`);
     if (data.stockCount < quantity) {
       window.alert('Sorry Not enough of product in stock.');
+      return;
     }
     ctxDispatch({
       type: 'ADD_ITEM_TO_CART',
