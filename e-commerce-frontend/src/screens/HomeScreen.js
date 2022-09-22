@@ -7,6 +7,7 @@ import { Helmet } from 'react-helmet-async';
 
 import Product from '../components/Product';
 import LoadingSpinner from '../components/LoadingSpinner';
+import MessageBox from '../components/MessageBox';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -50,7 +51,7 @@ const HomeScreen = () => {
         {loading ? (
           <LoadingSpinner />
         ) : error ? (
-          <div>{error}</div>
+          <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <Row>
             {products.map((product) => (
