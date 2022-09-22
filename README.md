@@ -36,3 +36,8 @@
 10. Edit Loading Spinner
 11. Set up product page
 12. Error Message box
+13. Implement the add to cart
+    1. React context
+    2. reducer
+    3. store provider
+    4. add to cart button handler

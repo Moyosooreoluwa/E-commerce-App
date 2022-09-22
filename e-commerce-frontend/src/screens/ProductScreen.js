@@ -1,5 +1,5 @@
 import { useParams } from 'react-router-dom';
-import { useEffect, useReducer } from 'react';
+import { useContext, useEffect, useReducer } from 'react';
 import axios from 'axios';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
@@ -13,6 +13,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import Rating from '../components/Rating';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
+import { Store } from '../store/store';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -47,6 +48,13 @@ const ProductScreen = () => {
     };
     fetchData();
   }, [slug]);
+  const { state, dispatch: ctxDispatch } = useContext(Store);
+  const addToCartHandler = () => {
+    ctxDispatch({
+      type: 'ADD_ITEM_TO_CART',
+      payload: { ...product, quantity: 1 },
+    });
+  };
   return (
     <div>
       {loading && <LoadingSpinner />}
@@ -108,7 +116,9 @@ const ProductScreen = () => {
                     {product.stockCount > 0 && (
                       <ListGroup.Item>
                         <div className="d-grid">
-                          <Button variant="success">Add to Cart</Button>
+                          <Button onClick={addToCartHandler} variant="success">
+                            Add to Cart
+                          </Button>
                         </div>
                       </ListGroup.Item>
                     )}
