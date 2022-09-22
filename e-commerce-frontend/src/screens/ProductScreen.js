@@ -76,7 +76,7 @@ const ProductScreen = () => {
                   />
                 </ListGroup.Item>
                 <ListGroup.Item>
-                  <h4>Price: ${product.price}</h4>
+                  <h4>Price: ${product.price.toFixed(2)}</h4>
                 </ListGroup.Item>
                 <ListGroup.Item>
                   <p>{product.description}</p>
@@ -90,7 +90,7 @@ const ProductScreen = () => {
                     <ListGroup.Item>
                       <Row>
                         <Col>Price:</Col>
-                        <Col>${product.price}</Col>
+                        <Col>${product.price.toFixed(2)}</Col>
                       </Row>
                     </ListGroup.Item>
                     <ListGroup.Item>

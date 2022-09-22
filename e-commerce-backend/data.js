@@ -9,7 +9,7 @@ const data = {
       stockCount: 0,
       brand: 'Apple',
       rating: 2.5,
-      reviewCount: 10,
+      reviewCount: 100,
       description: 'Noise cancelling bluetooth earphones.',
     },
     {
