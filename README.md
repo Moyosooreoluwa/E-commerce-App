@@ -35,3 +35,4 @@
 9. Style Cards
 10. Edit Loading Spinner
 11. Set up product page
+12. Error Message box
