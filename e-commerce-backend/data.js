@@ -6,9 +6,9 @@ const data = {
       category: 'Headphones and Earphones',
       image: '/images/airpodspro(2).jpg', //679px x 829px
       price: 249,
-      stockCount: 10,
+      stockCount: 0,
       brand: 'Apple',
-      rating: 4.5,
+      rating: 2.5,
       reviewCount: 10,
       description: 'Noise cancelling bluetooth earphones.',
     },

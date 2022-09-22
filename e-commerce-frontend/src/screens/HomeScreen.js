@@ -3,6 +3,8 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import { Helmet } from 'react-helmet-async';
+
 import Product from '../components/Product';
 import LoadingSpinner from '../components/LoadingSpinner';
 
@@ -40,6 +42,9 @@ const HomeScreen = () => {
   }, []);
   return (
     <div>
+      <Helmet>
+        <title>Moyozon - E-commerce Web App</title>
+      </Helmet>
       <h1>Featured Products</h1>
       <div className="products">
         {loading ? (
