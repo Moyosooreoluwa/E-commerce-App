@@ -52,3 +52,4 @@
     1. click handler to increase or decrease item quantity
     2. click handler to remove item
     3. click handler to checkout
+17. Sign in screen
