@@ -1,7 +1,7 @@
 const data = {
   products: [
     {
-      _id: '1',
+      // _id: '1',
       name: 'Apple Airpods Pro 2nd Generaton',
       slug: 'apple-airpods-pro-2ndgen',
       category: 'Headphones and Earphones',
@@ -14,7 +14,7 @@ const data = {
       description: 'Noise cancelling bluetooth earphones.',
     },
     {
-      _id: '2',
+      // _id: '2',
       name: 'JBL Tune 660C Headphones',
       slug: 'jbl-tune-660c',
       category: 'Headphones and Earphones',
@@ -28,7 +28,7 @@ const data = {
         'Wireless over-ear bluetooth earphones with active noise cancellation.',
     },
     {
-      _id: '3',
+      // _id: '3',
       name: 'Samsung Galaxy S22 Ultra',
       slug: 'samsung-s22-ultra',
       category: 'Mobile Phones',
@@ -42,7 +42,7 @@ const data = {
         'Ultra Modern with a built-in S Pen, Nightography camera and a battery that goes way beyond all day.',
     },
     {
-      _id: '4',
+      // _id: '4',
       name: 'Apple iPhone 13 pro max (256GB)',
       slug: 'apple-iphone-13pro-max-256',
       category: 'Mobile Phones',
