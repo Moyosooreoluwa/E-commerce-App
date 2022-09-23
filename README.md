@@ -53,3 +53,8 @@
     2. click handler to remove item
     3. click handler to checkout
 17. Sign in screen
+18. Connect To MongoDB
+    1. create atlas monogodb database
+    2. install local mongodb database
+    3. npm install mongoose
+    4. connect to mongodb database
