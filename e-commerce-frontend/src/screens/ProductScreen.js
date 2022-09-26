@@ -67,7 +67,11 @@ const ProductScreen = () => {
   };
   return (
     <div>
-      {loading && <LoadingSpinner />}
+      {loading && (
+        <div className="container container-small">
+          <LoadingSpinner />
+        </div>
+      )}
       {error && <MessageBox variant="danger">{error}</MessageBox>}
       {!error && !loading && (
         <div className="">
@@ -83,7 +87,7 @@ const ProductScreen = () => {
               <ListGroup variant="flush">
                 <ListGroup.Item>
                   <Helmet>
-                    <title>{product.name}</title>
+                    <title>{`${product.name} - Moyozon`}</title>
                   </Helmet>
                   <h2>{product.name}</h2>
                 </ListGroup.Item>
