@@ -51,7 +51,7 @@ export default function ShippingAddressScreen() {
         country,
       })
     );
-    navigate('/payment');
+    navigate('/payment-method');
   };
 
   return (
