@@ -1,5 +1,5 @@
 const Rating = (props) => {
-  const { rating, reviewCount } = props;
+  const { rating, reviewCount, caption } = props;
   return (
     <div className="rating">
       <span>
@@ -49,7 +49,11 @@ const Rating = (props) => {
           }
         />
       </span>
-      <span> {reviewCount} reviews. </span>
+      {caption ? (
+        <span>{caption}</span>
+      ) : (
+        <span>{' ' + reviewCount + ' reviews'}</span>
+      )}
     </div>
   );
 };
