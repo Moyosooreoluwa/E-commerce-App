@@ -62,7 +62,7 @@ const CartScreen = () => {
                         alt={item.name}
                         className="img-fluid rounded img-thumbnail"
                       ></img>{' '}
-                      <Link to={`/product/${item.slug}`}>
+                      <Link to={`/product/${item.slug}`} className="no-dec">
                         <p>{item.name}</p>
                       </Link>
                     </Col>

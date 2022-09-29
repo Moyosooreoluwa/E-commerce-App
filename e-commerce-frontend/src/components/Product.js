@@ -35,7 +35,7 @@ const Product = (props) => {
         <img src={product.image} className="card-img-top" alt={product.name} />
       </Link>
       <Card.Body>
-        <Link to={`/product/${product.slug}`}>
+        <Link to={`/product/${product.slug}`} className="no-dec">
           <Card.Title>{product.name}</Card.Title>
         </Link>
         <Rating rating={product.rating} reviewCount={product.reviewCount} />
