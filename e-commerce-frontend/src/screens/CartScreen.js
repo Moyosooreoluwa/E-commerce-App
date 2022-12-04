@@ -112,11 +112,10 @@ const CartScreen = () => {
                     $
                     {cartItems.reduce(
                       (a, c) =>
-                        (
-                          Math.round((a + c.price * c.quantity) * 100) / 100
-                        ).toFixed(2),
+                        Math.round((a + c.price * c.quantity) * 100) / 100,
                       0
                     )}
+                    0
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
