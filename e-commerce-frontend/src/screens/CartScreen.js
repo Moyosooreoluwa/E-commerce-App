@@ -112,10 +112,11 @@ const CartScreen = () => {
                     $
                     {cartItems.reduce(
                       (a, c) =>
-                        Math.round((a + c.price * c.quantity) * 100) / 100,
+                        parseFloat(
+                          (a + c.price * c.quantity).toString()
+                        ).toFixed(2),
                       0
                     )}
-                    0
                   </h3>
                 </ListGroup.Item>
                 <ListGroup.Item>
