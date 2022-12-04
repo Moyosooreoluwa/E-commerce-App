@@ -111,7 +111,8 @@ const CartScreen = () => {
                     Subtotal ({cartItems.reduce((a, c) => a + c.quantity, 0)}):
                     $
                     {cartItems.reduce(
-                      (a, c) => (a + c.price * c.quantity).toFixed(2),
+                      (a, c) =>
+                        Math.round((a + c.price * c.quantity) * 100) / 100,
                       0
                     )}
                   </h3>
