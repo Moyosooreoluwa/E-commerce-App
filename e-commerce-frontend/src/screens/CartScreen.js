@@ -112,7 +112,9 @@ const CartScreen = () => {
                     $
                     {cartItems.reduce(
                       (a, c) =>
-                        Math.round((a + c.price * c.quantity) * 100) / 100,
+                        (
+                          Math.round((a + c.price * c.quantity) * 100) / 100
+                        ).toFixed(2),
                       0
                     )}
                   </h3>
