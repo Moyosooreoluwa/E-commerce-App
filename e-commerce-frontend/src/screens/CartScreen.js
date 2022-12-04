@@ -113,8 +113,8 @@ const CartScreen = () => {
                     {cartItems.reduce(
                       (a, c) =>
                         parseFloat(
-                          (a + c.price * c.quantity).toString()
-                        ).toFixed(2),
+                          (a + c.price * c.quantity).toFixed(2).toString()
+                        ),
                       0
                     )}
                   </h3>
