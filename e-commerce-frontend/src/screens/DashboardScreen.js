@@ -1,33 +1,35 @@
 import React, { useContext, useEffect, useReducer } from 'react';
+import Chart from 'react-google-charts';
+import axios from 'axios';
 import { Store } from '../store/store';
 import { getError } from '../utils';
-import axios from 'axios';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MessageBox from '../components/MessageBox';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Card from 'react-bootstrap/Card';
-import Chart from 'react-google-charts';
 
 const reducer = (state, action) => {
   switch (action.type) {
     case 'FETCH_REQUEST':
       return { ...state, loading: true };
     case 'FETCH_SUCCESS':
-      return { ...state, laoding: false, summary: action.payload };
+      return {
+        ...state,
+        summary: action.payload,
+        loading: false,
+      };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
     default:
       return state;
   }
 };
-
 export default function DashboardScreen() {
   const [{ loading, summary, error }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
   });
-
   const { state } = useContext(Store);
   const { userInfo } = state;
 
@@ -47,6 +49,7 @@ export default function DashboardScreen() {
     };
     fetchData();
   }, [userInfo]);
+
   return (
     <div>
       <h1>Dashboard</h1>
@@ -65,7 +68,7 @@ export default function DashboardScreen() {
                       ? summary.users[0].numUsers
                       : 0}
                   </Card.Title>
-                  <Card.Text>Users</Card.Text>
+                  <Card.Text> Users</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -73,11 +76,11 @@ export default function DashboardScreen() {
               <Card>
                 <Card.Body>
                   <Card.Title>
-                    {summary.orders && summary.orders[0]
+                    {summary.orders && summary.users[0]
                       ? summary.orders[0].numOrders
                       : 0}
                   </Card.Title>
-                  <Card.Text>Orders</Card.Text>
+                  <Card.Text> Orders</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
@@ -85,11 +88,12 @@ export default function DashboardScreen() {
               <Card>
                 <Card.Body>
                   <Card.Title>
-                    {summary.orders && summary.orders[0]
+                    $
+                    {summary.orders && summary.users[0]
                       ? summary.orders[0].totalSales.toFixed(2)
                       : 0}
                   </Card.Title>
-                  <Card.Text>Orders</Card.Text>
+                  <Card.Text> Orders</Card.Text>
                 </Card.Body>
               </Card>
             </Col>
