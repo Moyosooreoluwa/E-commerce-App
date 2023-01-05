@@ -1,13 +1,14 @@
-import axios from 'axios';
 import React, { useContext, useEffect, useReducer, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import axios from 'axios';
 import { Store } from '../store/store';
 import { getError } from '../utils';
 import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
 import { Helmet } from 'react-helmet-async';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MessageBox from '../components/MessageBox';
-import Form from 'react-bootstrap/Form';
 import Button from 'react-bootstrap/Button';
 
 const reducer = (state, action) => {
@@ -18,16 +19,24 @@ const reducer = (state, action) => {
       return { ...state, loading: false };
     case 'FETCH_FAIL':
       return { ...state, loading: false, error: action.payload };
+    case 'UPDATE_REQUEST':
+      return { ...state, loadingUpdate: true };
+    case 'UPDATE_SUCCESS':
+      return { ...state, loadingUpdate: false };
+    case 'UPDATE_FAIL':
+      return { ...state, loadingUpdate: false };
     default:
       return state;
   }
 };
 export default function ProductEditScreen() {
-  const params = useParams();
+  const navigate = useNavigate();
+  const params = useParams(); // /product/:id
   const { id: productId } = params;
+
   const { state } = useContext(Store);
   const { userInfo } = state;
-  const [{ loading, error }, dispatch] = useReducer(reducer, {
+  const [{ loading, error, loadingUpdate }, dispatch] = useReducer(reducer, {
     loading: true,
     error: '',
   });
@@ -51,7 +60,7 @@ export default function ProductEditScreen() {
         setPrice(data.price);
         setImage(data.image);
         setCategory(data.category);
-        setStockCount(data.countInStock);
+        setStockCount(data.stockCount);
         setBrand(data.brand);
         setDescription(data.description);
         dispatch({ type: 'FETCH_SUCCESS' });
@@ -65,18 +74,50 @@ export default function ProductEditScreen() {
     fetchData();
   }, [productId]);
 
+  const submitHandler = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch({ type: 'UPDATE_REQUEST' });
+      await axios.put(
+        `/api/products/${productId}`,
+        {
+          _id: productId,
+          name,
+          slug,
+          price,
+          image,
+          category,
+          brand,
+          stockCount,
+          description,
+        },
+        {
+          headers: { Authorization: `Bearer ${userInfo.token}` },
+        }
+      );
+      dispatch({
+        type: 'UPDATE_SUCCESS',
+      });
+      toast.success('Product updated successfully');
+      navigate('/admin/products');
+    } catch (err) {
+      toast.error(getError(err));
+      dispatch({ type: 'UPDATE_FAIL' });
+    }
+  };
   return (
-    <Container>
+    <Container className="small-container">
       <Helmet>
         <title>Edit Product - ${productId} - Moyozon</title>
       </Helmet>
       <h1>Edit Product - {productId}</h1>
+
       {loading ? (
         <LoadingSpinner />
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <Form>
+        <Form onSubmit={submitHandler}>
           <Form.Group className="mb-3" controlId="name">
             <Form.Label>Name</Form.Label>
             <Form.Control
@@ -93,7 +134,7 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="price">
+          <Form.Group className="mb-3" controlId="name">
             <Form.Label>Price</Form.Label>
             <Form.Control
               value={price}
@@ -117,19 +158,19 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <Form.Group className="mb-3" controlId="stockCount">
-            <Form.Label>Amount in Stock</Form.Label>
-            <Form.Control
-              value={stockCount}
-              onChange={(e) => setStockCount(e.target.value)}
-              required
-            />
-          </Form.Group>
           <Form.Group className="mb-3" controlId="brand">
-            <Form.Label>Brand Name</Form.Label>
+            <Form.Label>Brand</Form.Label>
             <Form.Control
               value={brand}
               onChange={(e) => setBrand(e.target.value)}
+              required
+            />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="stockCount">
+            <Form.Label>Number In Stock</Form.Label>
+            <Form.Control
+              value={stockCount}
+              onChange={(e) => setStockCount(e.target.value)}
               required
             />
           </Form.Group>
@@ -141,8 +182,11 @@ export default function ProductEditScreen() {
               required
             />
           </Form.Group>
-          <div>
-            <Button type="submit">Update</Button>
+          <div className="mb-3">
+            <Button disabled={loadingUpdate} type="submit">
+              Update
+            </Button>
+            {loadingUpdate && <LoadingSpinner />}
           </div>
         </Form>
       )}

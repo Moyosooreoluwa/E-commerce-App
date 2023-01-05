@@ -152,3 +152,6 @@
     1. Create edit button
     2. Create edit product UI
     3. Dispaly product info in the input boxes
+40. Implement Update Product
+    1. Create edit product backend API
+    2. Handle update click
