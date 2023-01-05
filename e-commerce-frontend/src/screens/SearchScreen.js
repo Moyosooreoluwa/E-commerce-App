@@ -130,7 +130,7 @@ export default function SearchScreen() {
   return (
     <div>
       <Helmet>
-        <title>Search Products</title>
+        <title>Search Products - Moyozon</title>
       </Helmet>
       <Row>
         <Col md={3}>
