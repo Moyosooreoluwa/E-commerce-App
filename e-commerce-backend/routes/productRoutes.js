@@ -41,7 +41,7 @@ productRouter.put(
     const product = await Product.findById(productId);
     if (product) {
       product.name = req.body.name;
-      product.slug = req.slug.name;
+      product.slug = req.body.slug;
       product.price = req.body.price;
       product.image = req.body.image;
       product.category = req.body.category;
@@ -49,9 +49,9 @@ productRouter.put(
       product.stockCount = req.body.stockCount;
       product.description = req.body.description;
       await product.save();
-      res.send({ message: 'Product Updated.' });
+      res.send({ message: 'Product Updated' });
     } else {
-      res.status(404).send({ message: 'Product Not Found.' });
+      res.status(404).send({ message: 'Product Not Found' });
     }
   })
 );
