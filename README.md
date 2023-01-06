@@ -164,3 +164,7 @@
     1. Show delete button
     2. Implement backend API
     3. Handle on click
+43. List Orders
+    1. Create order list screen
+    2. Implement backen API
+    3. Fetch and display orders
