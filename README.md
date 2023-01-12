@@ -172,3 +172,7 @@
     1. Add deliver button
     2. Handle click action
     3. Implement backen API for deliver
+45. Delete Order
+    1. Add delete button
+    2. Handle click action
+    3. Implement backen API for delete
