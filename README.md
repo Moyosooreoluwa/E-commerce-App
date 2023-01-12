@@ -176,3 +176,7 @@
     1. Add delete button
     2. Handle click action
     3. Implement backen API for delete
+46. List Users
+    1. Create user list screen
+    2. Implement backen API
+    3. Fetch and display users
