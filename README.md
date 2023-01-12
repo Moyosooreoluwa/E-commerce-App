@@ -168,3 +168,7 @@
     1. Create order list screen
     2. Implement backen API
     3. Fetch and display orders
+44. Deliver Order
+    1. Add deliver button
+    2. Handle click action
+    3. Implement backen API for deliver
