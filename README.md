@@ -180,3 +180,9 @@
     1. Create user list screen
     2. Implement backen API
     3. Fetch and display users
+47. Edit User
+    1. Create edit button
+    2. Create edit product UI
+    3. Dispaly product info in the input boxes
+    4. Implement backend API
+    5. Handle edit click
