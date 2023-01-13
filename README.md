@@ -186,3 +186,7 @@
     3. Dispaly product info in the input boxes
     4. Implement backend API
     5. Handle edit click
+48. Delete User
+    1. Add delete button
+    2. Handle click action
+    3. Implement backend API for delete
