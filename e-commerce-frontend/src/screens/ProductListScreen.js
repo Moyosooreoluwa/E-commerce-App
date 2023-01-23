@@ -9,6 +9,7 @@ import { Store } from '../store/store';
 import LoadingSpinner from '../components/LoadingSpinner';
 import MessageBox from '../components/MessageBox';
 import { getError } from '../utils';
+import { Helmet } from 'react-helmet-async';
 
 const reducer = (state, action) => {
   switch (action.type) {
@@ -130,6 +131,9 @@ export default function ProductListScreen() {
   };
   return (
     <div>
+      <Helmet>
+        <title>All Products - Moyozon</title>
+      </Helmet>
       <Row>
         <Col>
           <h1>Products</h1>

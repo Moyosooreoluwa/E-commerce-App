@@ -89,7 +89,7 @@ export default function UserListScreen() {
   return (
     <div>
       <Helmet>
-        <title>Users</title>
+        <title>All Users - Moyozon</title>
       </Helmet>
       <h1>Users</h1>
       {loadingDelete && <LoadingSpinner />}
@@ -104,7 +104,7 @@ export default function UserListScreen() {
               <th>ID</th>
               <th>NAME</th>
               <th>EMAIL</th>
-              <th>IS ADMIN</th>
+              <th>ADMIN?</th>
               <th>ACTIONS</th>
             </tr>
           </thead>

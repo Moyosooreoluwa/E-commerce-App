@@ -41,7 +41,7 @@ const CartScreen = () => {
   return (
     <div>
       <Helmet>
-        <title>Moyozon - Cart</title>
+        <title>Cart - Moyozon</title>
       </Helmet>
       <h1>Shopping Cart</h1>
       <Row>

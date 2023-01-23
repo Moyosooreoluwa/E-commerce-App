@@ -64,7 +64,7 @@ export default function ProfileScreen() {
   return (
     <div className="container small-container">
       <Helmet>
-        <title>User Profile</title>
+        <title>User Profile - Moyozon</title>
       </Helmet>
       <h1 className="my-3">User Profile</h1>
       <form onSubmit={submitHandler}>
