@@ -225,8 +225,7 @@ export default function OrderScreen() {
                 ,&nbsp;
                 {order.shippingAddress.city},&nbsp;{' '}
                 {order.shippingAddress.postalCode}
-                ,&nbsp;{order.shippingAddress.country}
-                &nbsp;
+                ,&nbsp;{order.shippingAddress.country}. &nbsp;
                 {order.shippingAddress.location &&
                   order.shippingAddress.location.lat && (
                     <a
